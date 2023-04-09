@@ -19,7 +19,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 
-MODEL_NAMES = ["RNN", "LSTM", "Transformer"]
+MODEL_NAMES = ["RNN", "LSTM"]
 
 
 class RNNClassifier(nn.Module):
@@ -204,7 +204,7 @@ def main():
     parser = argparse.ArgumentParser()
 
     parser.add_argument("--model_name", default=None, type=str, required=True,
-                        help="The model_name should be RNN, LSTM or Transformer")
+                        help="The model_name should be RNN or LSTM")
     parser.add_argument("--learning_rate", default=5e-5, type=float,
                         help="The learning rate of optimizer")
     parser.add_argument("--batch_size", default=32, type=int,
@@ -222,7 +222,7 @@ def main():
     args = parser.parse_args()
 
     if args.model_name not in MODEL_NAMES:
-        raise ValueError("The model name should be one of RNN, LSTM or Transformer")
+        raise ValueError("The model name should be one of RNN or LSTM")
 
     train(args)
 
