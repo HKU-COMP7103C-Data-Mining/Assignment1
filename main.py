@@ -18,6 +18,7 @@ import utils
 import torch
 import torch.nn as nn
 import torch.optim as optim
+from sklearn.metrics import classification_report
 
 MODEL_NAMES = ["RNN", "LSTM"]
 
@@ -176,7 +177,8 @@ def train(args):
         writer.add_scalar(args.model_name + 'f1--lr=' + str(args.learning_rate)
                             + 'num_layers=' + str(args.num_layers),
                             f1, epoch + 1)
-        print ("Evaluation Result: [Accuracy = %.4f, Precision = %.4f, Recall = %.4f, F1 = %.4f]" % (acc, precision, recall, f1))
+        # print ("Evaluation Result: [Accuracy = %.4f, Precision = %.4f, Recall = %.4f, F1 = %.4f]" % (acc, precision, recall, f1))
+        print(classification_report(test_labels,predictions,target_names=['o','n']))
         torch.cuda.empty_cache()
     return model
 
