@@ -29,6 +29,13 @@ To run RNN and LSTM, please use following command:
 python main.py --model_name RNN(LSTM) --learning_rate 1e-5 --batch_size 32 --num_layers 1 --embedding_dim 512 --epochs 20 --hidden_dim 64 --bidirectional True
 ```
 
+The training logs are in [runs/experiment_1](./runs/experiment_1). To see the figures, please use tensorboard extension in Jupyter notebook. To load the tensorboard, use commands below in notebook:
+
+```bash
+%load_ext tensorboard
+%tensorboard --logdir=runs/experiment_1
+```
+
 #### 5. Bert training and evaluation
 
 We also use a more advanced model BERT. To see the codes and running logs, please see [bert.ipynb](./bert.ipynb).
